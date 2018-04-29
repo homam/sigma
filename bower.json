@@ -6,8 +6,23 @@
     "!src/**/*"
   ],
   "dependencies": {
+    "purescript-prelude": "^3.0.0",
+    "purescript-strings": "master",
+    "purescript-node-process": "^5.0.0",
     "purescript-react": "^4.1.0",
     "purescript-react-dom": "^4.0.0",
-    "purescript-console": "^3.0.0"
+    "purescript-console": "^3.0.0",
+    "purescript-parsing": "^4.3.1",
+    "purescript-numbers": "^5.0.0",
+    "purescript-generics-rep": "^5.4.0",
+    "purescript-foreign-generic": "^5.0.1",
+    "purescript-aff": "^4.1.1",
+    "purescript-node-fs-aff": "^5.0.0",
+    "purescript-foreign": "^4.0.1",
+    "purescript-express": "^0.6.4",
+    "purescript-node-postgres": "^4.1.0"
+  },
+  "devDependencies": {
+    "purescript-psci-support": "^3.0.0"
   }
 }

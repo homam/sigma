@@ -29,14 +29,16 @@ newtype AppState = AppState
 initialState :: AppState
 initialState = AppState { count: 0  }
 
+helloComponent :: ∀ props. String -> { name ∷ String | props } → Array ReactElement → ReactElement
+helloComponent msg = createElement (hello msg)
 
-hello :: forall props. ReactClass { name :: String | props }
-hello = createClass $ spec unit \ctx -> do
+hello :: forall props. String -> ReactClass { name :: String | props }
+hello msg = createClass $ spec unit \ctx -> do
   props <- getProps ctx
   pure $ D.h1 [ P.className "Hello"
               , P.style { background: "lightgray" }
               ]
-              [ D.text "Hello, "
+              [ D.text msg
               , D.text props.name
               , createElement (createClassStateless \props' -> D.div' [ D.text $ "Stateless" <> props'.test ])
                                 { test: " test" } []
@@ -70,14 +72,14 @@ counter = createClass counterSpec
                           addOne >>> writeState ctx
                     ]
                     [ D.text (toString count)
-                    , D.text " Click me to increment!"
+                    , D.text " Click me to increment!!"
                     ]
 
 main :: forall eff. Eff (dom :: DOM | eff) Unit
 main = void (elm' >>= render ui)
   where
   ui :: ReactElement
-  ui = D.div' [ createFactory hello { name: "World" }
+  ui = D.div' [ createFactory (hello "Hello!") { name: "World" }
               , createFactory counter unit
               , createElement container unit
                               [ D.p [ P.key "1" ] [ D.text  "This is line one" ]
