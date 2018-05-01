@@ -20,7 +20,8 @@
     "purescript-node-fs-aff": "^5.0.0",
     "purescript-foreign": "^4.0.1",
     "purescript-express": "^0.6.4",
-    "purescript-node-postgres": "^4.1.0"
+    "purescript-node-postgres": "^4.1.0",
+    "purescript-js-date": "^5.2.0"
   },
   "devDependencies": {
     "purescript-psci-support": "^3.0.0"
